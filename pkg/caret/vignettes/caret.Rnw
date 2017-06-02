@@ -225,7 +225,7 @@ To modify the resampling method, a \code{trainControl} function is used. The opt
 +                 \textcolor{red}{trControl = ctrl},
 +                 preProc = c("center", "scale"))                     
 \end{Verbatim}
-Finally, to choose different measures of performance, additional arguments are given to \code{trainControl}. The \code{summaryFunction} argument is used to pas in a function that takes the observed and predicted values and estimate some measure of performance. Two such functions are already included in the package: \code{defaultSummary} and \code{twoClassSummary}. The latter will compute measures specific to two--class problems, such as the area under the ROC curve, the sensitivity and specificity. Since the ROC curve is based on the predicted class probabilities (which are not computed automatically), another option is required. The \code{classProbs = TRUE} option is used to include these calculations. 
+Finally, to choose different measures of performance, additional arguments are given to \code{trainControl}. The \code{summaryFunction} argument is used to pass in a function that takes the observed and predicted values and estimate some measure of performance. Two such functions are already included in the package: \code{defaultSummary} and \code{twoClassSummary}. The latter will compute measures specific to two--class problems, such as the area under the ROC curve, the sensitivity and specificity. Since the ROC curve is based on the predicted class probabilities (which are not computed automatically), another option is required. The \code{classProbs = TRUE} option is used to include these calculations. 
 
 Lastly, the function will pick the tuning parameters associated with the best results. Since we are using custom performance measures, the criterion that should be optimized must also be specified. In the call to \code{train}, we can use \code{metric = "ROC"} to do this.
 
@@ -283,7 +283,7 @@ print(plot(plsFit))
 \end{figure}   
 
 
-To predict new samples, \code{predict.train} can be used. For classification models, the default behavior is to calculated the predicted class. Using the option \code{type = "prob"} can be used to compute class probabilities from the model. For example:
+To predict new samples, \code{predict.train} can be used. For classification models, the default behavior is to calculate the predicted class. Using the option \code{type = "prob"} can be used to compute class probabilities from the model. For example:
 <<plsPred>>=
 plsClasses <- predict(plsFit, newdata = testing)
 str(plsClasses)
